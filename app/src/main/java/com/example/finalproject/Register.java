@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,13 +12,14 @@ import android.widget.Toast;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Register extends AppCompatActivity {
 
     EditText tvUsername, tvFirstName, tvLastName, tvPassword;
-    Button btnRegister;
+    Button btnRegister,btnRegisterLogIn;
 
     String str;
 
@@ -25,12 +27,12 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        connect();
+
         tvFirstName = findViewById(R.id.tvFirstName);
         tvLastName = findViewById(R.id.tvLastName);
         tvUsername = findViewById(R.id.txtUsername);
         tvPassword = findViewById(R.id.txtPassword);
-        btnRegister = findViewById(R.id.btnLogIn);
+        btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,24 +61,33 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    private void connect(){
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(() ->{
-            try(Connection c = MySQLConnection.getConnection()){
-                if(c == null){
-                    str = "Error Connecting to MySQL server";
-                } else {
-                    str = "Connection Successful";
-                }
-            } catch (SQLException e){
-                str = "Error in Connection: "+ e.getMessage();
+        btnRegisterLogIn = findViewById(R.id.btnLogInRegister);
+        btnRegisterLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this,LogIn.class);
+                startActivity(intent);
+                finish();
             }
-            runOnUiThread(() ->{
-                Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
-            });
         });
+
     }
+//
+//    private void connect(){
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//        executorService.execute(() ->{
+//            try(Connection c = MySQLConnection.getConnection()){
+//                if(c == null){
+//                    str = "Error Connecting to MySQL server";
+//                } else {
+//                    str = "Connection Successful";
+//                }
+//            } catch (SQLException e){
+//                str = "Error in Connection: "+ e.getMessage();
+//            }
+//            runOnUiThread(() ->{
+//                Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
+//            });
+//        });
+//    }
 }

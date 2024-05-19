@@ -2,8 +2,11 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +22,7 @@ import java.util.concurrent.Executors;
 public class LogIn extends AppCompatActivity {
 
     EditText txtUsername, txtPassword;
-    Button btnLogIn;
+    Button btnLogIn, btnLogInRegister;
     String str;
 
     @Override
@@ -59,11 +62,22 @@ public class LogIn extends AppCompatActivity {
                         }
                         str = "Log in Successful";
                     } catch (SQLException e) {
-                        throw new RuntimeException(e);
+                        Log.e("LoginActivity", "Database connection error: " + e.getMessage());
+                        runOnUiThread(() -> {
+                            Toast.makeText(LogIn.this, "Database connection error", Toast.LENGTH_SHORT).show();
+                        });
                     }
                 });
             }
         });
-
+        btnLogInRegister = findViewById(R.id.btnLogInRegister);
+        btnLogInRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LogIn.this,Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
