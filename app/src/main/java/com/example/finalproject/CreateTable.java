@@ -54,4 +54,37 @@ public class CreateTable {
             }
         }
     }
+
+    public static void createDB(){
+        Connection c = null;
+        Statement stmt = null;
+        String query = "CREATE DATABASE IF NOT EXISTS dbdelish";
+        try {
+            c = MySQLConnection.getConnection();
+            if (c != null) {
+                stmt = c.createStatement();
+                stmt.execute(query);
+                System.out.println("Database created successfully!");
+            } else {
+                System.out.println("Failed to make connection!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (c != null) {
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
