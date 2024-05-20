@@ -47,6 +47,8 @@ public class LogIn extends AppCompatActivity {
                         if(rs.next()){
                             String pw = rs.getString("password");
                             if(password.equals(pw)){
+                                Intent intent = new Intent(LogIn.this,DashboardActivity.class);
+                                startActivity(intent);
                                 runOnUiThread(() ->{
                                     Toast.makeText(LogIn.this,"Log In Success", Toast.LENGTH_SHORT).show();
                                 });

@@ -50,7 +50,8 @@ public class Register extends AppCompatActivity {
                         statement.setString(4,password);
                         statement.executeUpdate();
                         str = "Registration Successful";
-
+                        Intent intent = new Intent(Register.this,DashboardActivity.class);
+                        startActivity(intent);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
