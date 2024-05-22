@@ -47,7 +47,8 @@ public class SplashScreen extends AppCompatActivity {
                 } else {
                     str = "Connection Successful";
                     CreateTable.createDB();
-                    CreateTable.createTable();
+                    CreateTable.createTableUsers();
+                    CreateTable.createTableFood();
                 }
             } catch (SQLException e){
                 str = "Error in Connection: "+ e.getMessage();

@@ -17,7 +17,7 @@ public class CreateTable {
         }
         return false;
     }
-    public static void createTable(){
+    public static void createTableUsers(){
         Connection c = null;
         Statement stmt = null;
         String query = "CREATE TABLE IF NOT EXISTS tblusers (" +
@@ -26,6 +26,44 @@ public class CreateTable {
                 "lastname VARCHAR(255) NOT NULL," +
                 "username VARCHAR(255) NOT NULL," +
                 "password VARCHAR(255) NOT NULL)";
+        try {
+            c = MySQLConnection.getConnection();
+            if (c != null) {
+                stmt = c.createStatement();
+                stmt.execute(query);
+                System.out.println("Tables created successfully!");
+            } else {
+                System.out.println("Failed to make connection!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (c != null) {
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void createTableFood(){
+        Connection c = null;
+        Statement stmt = null;
+        String query = "CREATE TABLE IF NOT EXISTS tblfood (" +
+                "food_id INT(10) PRIMARY KEY AUTO_INCREMENT," +
+                "food_name VARCHAR(255) NOT NULL," +
+                "food_description VARCHAR(255) NOT NULL," +
+                "food_category VARCHAR(255) NOT NULL," +
+                "num_orders INT(10) NOT NULL)";
         try {
             c = MySQLConnection.getConnection();
             if (c != null) {

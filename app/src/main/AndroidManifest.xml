@@ -15,6 +15,21 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".FoodView"
+            android:exported="false" />
+        <activity
+            android:name=".Desserts"
+            android:exported="false" />
+        <activity
+            android:name=".Sides"
+            android:exported="false" />
+        <activity
+            android:name=".Chicken"
+            android:exported="false" />
+        <activity
+            android:name=".SulitDeals"
+            android:exported="false" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity
