@@ -7,4 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".SulitDeals">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:fontFamily="@font/poppinsblack"
+                android:text="SULIT DEALS"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enjoy our delicious and budget-friendly sulit deals! Perfectly balanced and full of flavor, these meals are a satisfying way to enjoy Filipino comfort food without breaking the bank."
+                android:textAlignment="center"
+                android:textColor="#FDFDFD" />
+
+            <ImageButton
+                android:id="@+id/btnBurgerSteak"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/burgersteak" />
+
+            <ImageButton
+                android:id="@+id/btnShawarmaRice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/shawarmarice" />
+
+            <ImageButton
+                android:id="@+id/btnSteamedRice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/steamedrice" />
+
+            <ImageButton
+                android:id="@+id/btnTapSilog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/tapsilog" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

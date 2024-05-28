@@ -7,4 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".Chicken">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:fontFamily="@font/poppinsblack"
+                android:text="CHICKEN MEALS"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Treat yourself to our irresistible chicken meals, featuring crispy chicken shots and succulent chicken wings! Perfectly seasoned and cooked to perfection, our chicken shots offer bite-sized delights, while our wings come in a variety of flavors from classic buffalo to tangy barbecue."
+                android:textAlignment="center"
+                android:textColor="#FDFDFD" />
+
+            <ImageButton
+                android:id="@+id/btnChickenShots"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/chickenshots" />
+
+            <ImageButton
+                android:id="@+id/btnChickenKatsu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/chickenkatsu" />
+
+            <ImageButton
+                android:id="@+id/btnChickenWingsRice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/chickenwingsrice" />
+
+            <ImageButton
+                android:id="@+id/btnChickenWingsOnly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/chickenwingsra" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

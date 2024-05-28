@@ -55,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         IBSulitDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sulitdeals = new Intent(DashboardActivity.this, FoodView.class);
+                Intent sulitdeals = new Intent(DashboardActivity.this, SulitDeals.class);
                 startActivity(sulitdeals);
             }
         });

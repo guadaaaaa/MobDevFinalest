@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10px"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/fries" />
+                        app:srcCompat="@drawable/sulit" />
 
                     <ImageButton
                         android:id="@+id/IBChicken"
@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10px"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/fries" />
+                        app:srcCompat="@drawable/chicken" />
 
                     <ImageButton
                         android:id="@+id/IBSides"
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10px"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/fries" />
+                        app:srcCompat="@drawable/sides" />
 
                     <ImageButton
                         android:id="@+id/IBDesserts"
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10px"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/fries" />
+                        app:srcCompat="@drawable/drinks" />
 
                 </LinearLayout>
             </ScrollView>
