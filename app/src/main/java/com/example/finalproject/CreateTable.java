@@ -93,7 +93,7 @@ public class CreateTable {
         }
     }
 
-    public static void createDB(){
+    /*public static void createDB(){
         Connection c = null;
         Statement stmt = null;
         String query = "CREATE DATABASE IF NOT EXISTS dbdelish";
@@ -124,5 +124,5 @@ public class CreateTable {
                 }
             }
         }
-    }
+    } //diri */
 }

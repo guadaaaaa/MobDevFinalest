@@ -20,7 +20,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class LogIn extends AppCompatActivity {
-
+    protected Session SESSION;
     EditText txtUsername, txtPassword;
     Button btnLogIn, btnLogInRegister;
     String str;
@@ -29,6 +29,7 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        SESSION = Session.getInstance();
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         btnLogIn = findViewById(R.id.btnLogIn);
@@ -47,6 +48,11 @@ public class LogIn extends AppCompatActivity {
                         if(rs.next()){
                             String pw = rs.getString("password");
                             if(password.equals(pw)){
+                                SESSION.put("username",username);
+                                SESSION.put("password",password);
+                                SESSION.put("firstname",rs.getString("firstname"));
+                                SESSION.put("lastname",rs.getString("lastname"));
+                                SESSION.put("id",rs.getInt("id"));
                                 Intent intent = new Intent(LogIn.this,DashboardActivity.class);
                                 startActivity(intent);
                                 runOnUiThread(() ->{

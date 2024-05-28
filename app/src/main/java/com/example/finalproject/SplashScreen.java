@@ -46,7 +46,6 @@ public class SplashScreen extends AppCompatActivity {
                     str = "Error Connecting to MySQL server";
                 } else {
                     str = "Connection Successful";
-                    CreateTable.createDB();
                     CreateTable.createTableUsers();
                     CreateTable.createTableFood();
                 }

@@ -11,12 +11,15 @@ import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Register extends AppCompatActivity {
+
+    protected Session SESSION;
 
     EditText tvUsername, tvFirstName, tvLastName, tvPassword;
     Button btnRegister,btnRegisterLogIn;
@@ -27,7 +30,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        SESSION = Session.getInstance();
         tvFirstName = findViewById(R.id.tvFirstName);
         tvLastName = findViewById(R.id.tvLastName);
         tvUsername = findViewById(R.id.txtUsername);
@@ -50,6 +53,12 @@ public class Register extends AppCompatActivity {
                         statement.setString(4,password);
                         statement.executeUpdate();
                         str = "Registration Successful";
+                        SESSION.put("username",username);
+                        SESSION.put("password",password);
+                        SESSION.put("firstname",first);
+                        SESSION.put("lastname",last);
+                        ResultSet rs = statement.getGeneratedKeys();
+                        SESSION.put("id",rs.getInt("id"));
                         Intent intent = new Intent(Register.this,DashboardActivity.class);
                         startActivity(intent);
                     } catch (SQLException e) {

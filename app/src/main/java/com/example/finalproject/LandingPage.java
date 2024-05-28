@@ -8,9 +8,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LandingPage extends AppCompatActivity {
+
+    protected Session SESSION;
     Button btnLogin, btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SESSION = Session.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
         btnLogin = findViewById(R.id.btnLandingLogin);
