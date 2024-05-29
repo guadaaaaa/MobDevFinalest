@@ -38,6 +38,10 @@ public class LogIn extends AppCompatActivity {
             public void onClick(View view) {
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
+                if(username.isEmpty() || password.isEmpty()){
+                    Toast.makeText(LogIn.this, "Fields cannot be blank", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(() ->{
                     try(Connection c = MySQLConnection.getConnection();
@@ -54,10 +58,11 @@ public class LogIn extends AppCompatActivity {
                                 SESSION.put("lastname",rs.getString("lastname"));
                                 SESSION.put("id",rs.getInt("id"));
                                 Intent intent = new Intent(LogIn.this,DashboardActivity.class);
-                                startActivity(intent);
                                 runOnUiThread(() ->{
                                     Toast.makeText(LogIn.this,"Log In Success", Toast.LENGTH_SHORT).show();
                                 });
+                                startActivity(intent);
+                                finish();
                             } else {
                                 runOnUiThread(() ->{
                                     Toast.makeText(LogIn.this,"Password Incorrect", Toast.LENGTH_SHORT).show();

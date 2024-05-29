@@ -43,10 +43,14 @@ public class Register extends AppCompatActivity {
                 String last = String.valueOf(tvLastName.getText());
                 String username = String.valueOf(tvUsername.getText());
                 String password = String.valueOf(tvPassword.getText());
+                if(first.isEmpty() || last.isEmpty() || username.isEmpty() || password.isEmpty()){
+                    Toast.makeText(Register.this, "Fields cannot be blank", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(() ->{
                     try(Connection c = MySQLConnection.getConnection();
-                        PreparedStatement statement = c.prepareStatement("INSERT INTO tblusers (username,firstname,lastname,password) values (?,?,?,?)")) {
+                        PreparedStatement statement = c.prepareStatement("INSERT INTO tblusers (username,firstname,lastname,password) values (?,?,?,?)",Statement.RETURN_GENERATED_KEYS)) {
                         statement.setString(1,username);
                         statement.setString(2,first);
                         statement.setString(3,last);
@@ -58,9 +62,11 @@ public class Register extends AppCompatActivity {
                         SESSION.put("firstname",first);
                         SESSION.put("lastname",last);
                         ResultSet rs = statement.getGeneratedKeys();
-                        SESSION.put("id",rs.getInt("id"));
+                        rs.next();
+                        SESSION.put("id",rs.getInt(1));
                         Intent intent = new Intent(Register.this,DashboardActivity.class);
                         startActivity(intent);
+                        finish();
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

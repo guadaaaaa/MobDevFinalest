@@ -20,9 +20,11 @@ import java.util.ArrayList;
 public class DashboardActivity extends AppCompatActivity {
     //declare Session variable SESSION in each activity
     protected Session SESSION;
+
     ImageButton IBSulitDeals, IBChicken, IBSides, IBDessert;
-    TextView txtSessionName;
-    Button btnSubmit;
+    TextView txtSessionName,txtCurrOrders;
+    Button btnSubmit, btnEdit, btnLogOut;
+    StringBuilder currOrders;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,7 +34,9 @@ public class DashboardActivity extends AppCompatActivity {
         //instantiate singleton Session instance with Session.getInstance() in each activity
         //in the onCreate method
         SESSION = Session.getInstance();
+        currOrders = new StringBuilder("");
         txtSessionName = findViewById(R.id.txtSessionName);
+        txtCurrOrders = findViewById(R.id.txtCurrOrders);
         IBSulitDeals = findViewById(R.id.IBSulitDeals);
         IBChicken = findViewById(R.id.IBChicken);
         IBSides = findViewById(R.id.IBSides);
@@ -40,26 +44,19 @@ public class DashboardActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         String str = "Hello, " + SESSION.get("firstname");
         txtSessionName.setText(str);
-        /*
-            XXX LOGIC SA MULTI VALUED (PARA NAKO) XXX
-            1. inig order, since wa pa tay reference sa unsay gipang order
-            simply insert lang a new row sa table tblorder na naay order_id, foreign key id
-            sa ga order (use SESSION variable(SESSION.get("id"))), then i-default 0 lang sa
-            ang total_price
-            2. after og execute sa insert query, unsaon pag kuha sa order_id
-            na gi-generate sa database? ResultSet rs = statement.getGeneratedKeys(), and
-            ang pag access sa values same ra as you would sa any result set
-            3. for each kind of food gi-order, i-insert sa tblorderfood with values
-            foreign key order_id (use value from the result set from #2), foreign key food_id from
-            tblfood, and quantity (default 1 rani)
-            4. how to get total_price sa order? pag select query sa tanan items sa tblorderfood
-            i.e (SELECT * from tblorderfood WHERE order_id = rs.getInt("order_id")) example rana
-            PAG INNER JOIN SA tblfood PARA MAKUHA ANG PRICE
-            5. after makuha ang result set from the select query, initialize int price variable = 0 then,
-            simply iterate through the whole result set, increment price by (price of food * quantity)
-            6. after ana, simply UPDATE ang price sa atong gi-insert sa tblorder
-         */
+        ArrayList<Orders> orders = (ArrayList<Orders>) SESSION.get("orders");
+        try{
+            for(Orders o : orders){
+                if(o == null) continue;
+                currOrders.append("Food: ").append(o.getName()).append(" Price: ").append(o.getPrice()).append(" Quantity: ").append(o.getQuantity()).append(" Total Price: ").append(o.getTotalPrice()).append("\n");
+            }
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
 
+        runOnUiThread(() -> {
+            txtCurrOrders.setText(currOrders.toString());
+        });
         IBSulitDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +100,26 @@ public class DashboardActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 }
+            }
+        });
+
+        btnEdit = findViewById(R.id.btnEdit);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(DashboardActivity.this, EditProfile.class);
+                startActivity(edit);
+            }
+        });
+
+        btnLogOut = findViewById(R.id.btnLogOut);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SESSION.clear();
+                Intent out = new Intent(DashboardActivity.this, SplashScreen.class);
+                startActivity(out);
+                finish();
             }
         });
     }

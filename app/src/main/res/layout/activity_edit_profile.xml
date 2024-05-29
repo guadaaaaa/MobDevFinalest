@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderDetails">
+    tools:context=".EditProfile">
 
     <ScrollView
         android:layout_width="0dp"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsregular"
-                android:text="Here's your current order"
+                android:text="Do you want to edit profile?"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp" />
 
@@ -48,20 +48,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50px"
                 android:fontFamily="@font/poppinssemibold"
-                android:text="Orders"
+                android:text="Username"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
+            <EditText
+                android:id="@+id/txtEditUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/poppinsregular"
+                android:inputType="text"
+                android:textColor="#FFFFFF" />
+
             <Button
-                android:id="@+id/btnPay"
+                android:id="@+id/btnEditUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/poppinsblack"
-                android:text="Pay Order"
+                android:text="Change Username"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Password"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txtEditPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/poppinsregular"
+                android:inputType="textPassword"
+                android:text="Name"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnEditPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/poppinsblack"
+                android:text="Change Password"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/poppinsblack"
+                android:text="Delete Account"
                 android:textColor="#000000" />
 
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,7 @@ public class FoodView extends AppCompatActivity {
 
         if("Burger Steak".equals(name)){
             svParent.setBackgroundResource(R.drawable.steakview);
-            price = 99.0;
+            price = 105.0;
         } else if("Shawarma Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.shawarmaview);
             price = 99.0;
@@ -50,37 +50,37 @@ public class FoodView extends AppCompatActivity {
             price = 79.0;
         } else if("TapSilog".equals(name)){
             svParent.setBackgroundResource(R.drawable.tapsilogview);
-            price = 99.0;
+            price = 95.0;
         } else if("Chicken Shots".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenshotsview);
             price = 99.0;
         } else if("Chicken Katsu".equals(name)){
             svParent.setBackgroundResource(R.drawable.katsuview);
-            price = 135.0;
+            price = 129.0;
         } else if("Chicken Wings with Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenwingsriceview);
-            price = 125.0;
+            price = 139.0;
         } else if("Chicken Wings Platter".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenwingsview);
-            price = 185.0;
+            price = 149.0;
         } else if("French Fries".equals(name)){
             svParent.setBackgroundResource(R.drawable.friesview);
-            price = 79.0;
+            price = 89.0;
         } else if("Extra Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.riceview);
-            price = 10.0;
+            price = 15.0;
         } else if("Spaghetti".equals(name)){
             svParent.setBackgroundResource(R.drawable.spaghettiview);
-            price = 125.0;
+            price = 89.0;
         } else if("Milktea".equals(name)){
             svParent.setBackgroundResource(R.drawable.milkteaview);
-            price = 125.0;
+            price = 89.0;
         } else if("Cucumber Lemonade".equals(name)){
             svParent.setBackgroundResource(R.drawable.cucumberview);
-            price = 20.0;
+            price = 15.0;
         } else if("Red Iced Tea".equals(name)){
             svParent.setBackgroundResource(R.drawable.teaview);
-            price = 20.0;
+            price = 15.0;
         }
 
 
