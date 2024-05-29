@@ -88,13 +88,12 @@ public class FoodView extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ArrayList<Orders> orders = (ArrayList<Orders>)SESSION.get("orders");
-                orders.add(new Orders(name,price,Integer.parseInt(txtQuantity.getText().toString())));
+                Integer quantity = Integer.parseInt(txtQuantity.getText().toString());
+                orders.add(new Orders(name,price,quantity,FoodMap.map.get(name)));
                 SESSION.put("orders",orders);
                 Intent i = new Intent(FoodView.this,DashboardActivity.class);
                 startActivity(i);
                 finish();
-                // to-do
-                // submit total order - database queries for each orders in orders
             }
         });
 

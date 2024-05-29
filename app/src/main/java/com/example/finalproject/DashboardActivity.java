@@ -99,7 +99,9 @@ public class DashboardActivity extends AppCompatActivity {
                 if(orders.isEmpty()){
                     Toast.makeText(DashboardActivity.this,"You haven't ordered anything!", Toast.LENGTH_SHORT).show();
                 } else{
-
+                    Intent i = new Intent(DashboardActivity.this, OrderDetails.class);
+                    startActivity(i);
+                    finish();
                 }
             }
         });

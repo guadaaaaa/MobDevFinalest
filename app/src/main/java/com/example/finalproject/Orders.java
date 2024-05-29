@@ -5,11 +5,22 @@ public class Orders {
     private Double price;
     private Integer quantity;
     private Double totalPrice;
-    public Orders(String name, Double price, Integer quantity) {
+
+    public Integer getFood_id() {
+        return food_id;
+    }
+
+    public void setFood_id(Integer food_id) {
+        this.food_id = food_id;
+    }
+
+    private Integer food_id;
+    public Orders(String name, Double price, Integer quantity, Integer food_id) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         totalPrice = price*quantity;
+        this.food_id = food_id;
     }
 
     public String getName() {
