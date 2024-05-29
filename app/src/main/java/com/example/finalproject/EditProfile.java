@@ -76,7 +76,7 @@ public class EditProfile extends AppCompatActivity {
                 int id = (int)SESSION.get("id");
                 String password = txtEditPassword.getText().toString();
                 if(password.equals(SESSION.get("password"))){
-                    Toast.makeText(EditProfile.this, "NO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this, "Password can't be the same as the old one", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password.isEmpty()){

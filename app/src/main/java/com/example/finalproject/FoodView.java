@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FoodView extends AppCompatActivity {
     protected Session SESSION;
     ScrollView svParent;
-    TextView txtFoodName, txtFoodDesc, txtQuantity;
+    TextView txtFoodName, txtFoodDesc, txtQuantity, tvPrice;
     Button btnMinus, btnPlus, btnAdd;
     Double price;
 
@@ -35,6 +35,7 @@ public class FoodView extends AppCompatActivity {
         txtFoodName = findViewById(R.id.txtFoodName);
         txtFoodDesc = findViewById(R.id.txtDescription);
         txtQuantity = (TextView) findViewById(R.id.txtQuantity);
+        tvPrice = findViewById(R.id.tvPrice);
         txtFoodName.setText(name);
         txtFoodDesc.setText(desc);
         svParent = findViewById(R.id.svParent);
@@ -42,45 +43,59 @@ public class FoodView extends AppCompatActivity {
         if("Burger Steak".equals(name)){
             svParent.setBackgroundResource(R.drawable.steakview);
             price = 105.0;
+            tvPrice.setText("Price: "+price);
         } else if("Shawarma Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.shawarmaview);
             price = 99.0;
+            tvPrice.setText("Price: "+price);
         } else if("Steamed Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.steamedriceview);
             price = 79.0;
+            tvPrice.setText("Price: "+price);
         } else if("TapSilog".equals(name)){
             svParent.setBackgroundResource(R.drawable.tapsilogview);
             price = 95.0;
+            tvPrice.setText("Price: "+price);
         } else if("Chicken Shots".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenshotsview);
             price = 99.0;
+            tvPrice.setText("Price: "+price);
         } else if("Chicken Katsu".equals(name)){
             svParent.setBackgroundResource(R.drawable.katsuview);
             price = 129.0;
+            tvPrice.setText("Price: "+price);
         } else if("Chicken Wings with Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenwingsriceview);
             price = 139.0;
+            tvPrice.setText("Price: "+price);
         } else if("Chicken Wings Platter".equals(name)){
             svParent.setBackgroundResource(R.drawable.chickenwingsview);
             price = 149.0;
+            tvPrice.setText("Price: "+price);
         } else if("French Fries".equals(name)){
             svParent.setBackgroundResource(R.drawable.friesview);
             price = 89.0;
+            tvPrice.setText("Price: "+price);
         } else if("Extra Rice".equals(name)){
             svParent.setBackgroundResource(R.drawable.riceview);
             price = 15.0;
+            tvPrice.setText("Price: "+price);
         } else if("Spaghetti".equals(name)){
             svParent.setBackgroundResource(R.drawable.spaghettiview);
             price = 89.0;
+            tvPrice.setText("Price: "+price);
         } else if("Milktea".equals(name)){
             svParent.setBackgroundResource(R.drawable.milkteaview);
             price = 89.0;
+            tvPrice.setText("Price: "+price);
         } else if("Cucumber Lemonade".equals(name)){
             svParent.setBackgroundResource(R.drawable.cucumberview);
             price = 15.0;
+            tvPrice.setText("Price: "+price);
         } else if("Red Iced Tea".equals(name)){
             svParent.setBackgroundResource(R.drawable.teaview);
             price = 15.0;
+            tvPrice.setText("Price: "+price);
         }
 
 

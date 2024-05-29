@@ -98,7 +98,6 @@ public class DashboardActivity extends AppCompatActivity {
                 } else{
                     Intent i = new Intent(DashboardActivity.this, OrderDetails.class);
                     startActivity(i);
-                    finish();
                 }
             }
         });

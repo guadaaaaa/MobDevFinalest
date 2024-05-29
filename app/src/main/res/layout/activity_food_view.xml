@@ -19,22 +19,11 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70px"
-                android:backgroundTint="#000000"
-                android:text="@string/back"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                app:cornerRadius="50px" />
-
             <TextView
                 android:id="@+id/txtFoodName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1100px"
+                android:layout_marginTop="1230px"
                 android:fontFamily="@font/poppinsblack"
                 android:text="Burger Steak"
                 android:textColor="#FFFFFF"
@@ -47,6 +36,15 @@
                 android:fontFamily="@font/poppinsregular"
                 android:text="Rice topped with Burger Steak that is super moist and flavorful, with tender beef patties smothered in a rich mushroom gravy"
                 android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Price: 105.00"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -96,6 +94,7 @@
                 android:text="Add to Order"
                 android:textColor="#000000"
                 android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
 
