@@ -8,8 +8,8 @@
     tools:context=".DashboardActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="410dp"
+        android:layout_height="595dp"
         android:background="#000000"
         android:backgroundTint="#000000">
 
@@ -83,5 +83,13 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Order"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="644dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

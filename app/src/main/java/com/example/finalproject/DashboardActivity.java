@@ -1,10 +1,13 @@
 package com.example.finalproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +15,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class DashboardActivity extends AppCompatActivity {
     //declare Session variable SESSION in each activity
     protected Session SESSION;
     ImageButton IBSulitDeals, IBChicken, IBSides, IBDessert;
     TextView txtSessionName;
+    Button btnSubmit;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,7 @@ public class DashboardActivity extends AppCompatActivity {
         IBChicken = findViewById(R.id.IBChicken);
         IBSides = findViewById(R.id.IBSides);
         IBDessert = findViewById(R.id.IBDesserts);
+        btnSubmit = findViewById(R.id.btnSubmit);
         String str = "Hello, " + SESSION.get("firstname");
         txtSessionName.setText(str);
         /*
@@ -81,6 +89,18 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent dessert = new Intent(DashboardActivity.this, Desserts.class);
                 startActivity(dessert);
+            }
+        });
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Orders> orders = (ArrayList<Orders>) SESSION.get("orders");
+                if(orders.isEmpty()){
+                    Toast.makeText(DashboardActivity.this,"You haven't ordered anything!", Toast.LENGTH_SHORT).show();
+                } else{
+
+                }
             }
         });
     }

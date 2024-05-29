@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class LandingPage extends AppCompatActivity {
 
     protected Session SESSION;
@@ -14,6 +16,7 @@ public class LandingPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SESSION = Session.getInstance();
+        SESSION.put("orders",new ArrayList<Orders>()); //array of foods
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
         btnLogin = findViewById(R.id.btnLandingLogin);
